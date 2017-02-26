@@ -1,6 +1,6 @@
 -- Question 1
 select distinct customers.name,
-       customers.city
+	   customers.city
 from customers inner join products on customers.city = products.city
 where products.city in (select city
                from products 
@@ -22,10 +22,10 @@ order by name DESC
 -- Question 3
 select customers.name,
 	   orders.pid,
-       sum(orders.qty)
+       sum(orders.totalUSD)
 from orders inner join customers on orders.cid = customers.cid
 group by customers.name, orders.pid
-order by sum(orders.qty) DESC
+order by sum(orders.totalUSD) DESC
 ;
 
 -- Question 4
